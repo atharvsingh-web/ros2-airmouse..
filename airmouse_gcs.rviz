@@ -1,0 +1,60 @@
+Panels:
+  - Class: rviz_common/Displays
+    Name: Displays
+Visualization Manager:
+  Class: ""
+  Displays:
+    - Class: rviz_default_plugins/Map
+      Enabled: true
+      Name: 2D Real-Time SLAM Map
+      Topic:
+        Value: /map
+        Durability Policy: Transient Local
+      Alpha: 1.0
+      Color Scheme: map
+      Draw Behind: true
+    - Class: rviz_default_plugins/Grid
+      Enabled: true
+      Name: 1m x 1m Scoring Grid
+      Plane Cell Count: 10
+      Cell Size: 1
+      Color: 0; 180; 255
+      Alpha: 0.75
+      Offset:
+        X: 0
+        Y: 0
+        Z: 0.02
+    - Class: rviz_default_plugins/LaserScan
+      Enabled: true
+      Name: 2D LiDAR Scan Points
+      Topic:
+        Value: /scan
+      Size (m): 0.07
+      Color: 255; 50; 50
+    - Class: rviz_default_plugins/MarkerArray
+      Enabled: true
+      Name: Drone & 2D Survivor Grid Tags
+      Topic:
+        Value: /survivor_markers
+    - Class: rviz_default_plugins/Path
+      Enabled: true
+      Name: 2D Trajectory Trail
+      Topic:
+        Value: /drone_trail
+      Color: 0; 255; 255
+  Global Options:
+    Fixed Frame: map
+    Background Color: 35; 35; 40
+  Tools:
+    - Class: rviz_default_plugins/Interact
+    - Class: rviz_default_plugins/MoveCamera
+  Views:
+    Current:
+      Class: rviz_default_plugins/TopDownOrtho
+      Enable Stereo Rendering: false
+      Near Clip Distance: 0.01
+      Scale: 75.0
+      Target Frame: <Fixed Frame>
+      X: 0.0
+      Y: 0.0
+      Angle: 0.0
