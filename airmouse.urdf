@@ -1,0 +1,55 @@
+<?xml version="1.0"?>
+<robot name="airmouse">
+
+  <!-- Materials / Colors -->
+  <material name="carbon_fiber"><color rgba="0.12 0.12 0.15 1.0"/></material>
+  <material name="pcb_green"><color rgba="0.0 0.55 0.25 1.0"/></material>
+  <material name="speedybee_yellow"><color rgba="0.95 0.75 0.0 1.0"/></material>
+  <material name="battery_blue"><color rgba="0.1 0.4 0.85 1.0"/></material>
+  <material name="motor_gold"><color rgba="0.85 0.65 0.1 1.0"/></material>
+  <material name="guard_orange"><color rgba="1.0 0.35 0.0 0.75"/></material>
+  <material name="prop_cyan"><color rgba="0.0 0.85 1.0 0.55"/></material>
+  <material name="lidar_black"><color rgba="0.05 0.05 0.05 1.0"/></material>
+  <material name="camera_red"><color rgba="0.9 0.1 0.1 1.0"/></material>
+
+  <!-- Floor Projection Link -->
+  <link name="base_footprint"/>
+
+  <joint name="footprint_to_base" type="fixed">
+    <parent link="base_footprint"/>
+    <child link="base_link"/>
+    <origin xyz="0 0 0.9" rpy="0 0 0"/>
+  </joint>
+
+  <!-- Central Frame + Hardware Stack -->
+  <link name="base_link">
+    <!-- Main Carbon Center Plate -->
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry><box size="0.16 0.12 0.015"/></geometry>
+      <material name="carbon_fiber"/>
+    </visual>
+
+    <!-- Diagonal Carbon Arms (X-Configuration, 370mm Wheelbase) -->
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0.7854"/>
+      <geometry><box size="0.37 0.022 0.008"/></geometry>
+      <material name="carbon_fiber"/>
+    </visual>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 -0.7854"/>
+      <geometry><box size="0.37 0.022 0.008"/></geometry>
+      <material name="carbon_fiber"/>
+    </visual>
+
+    <!-- 4200mAh 6S LiPo Battery (Bottom Mounted for CG Balance) -->
+    <visual>
+      <origin xyz="0 0 -0.028" rpy="0 0 0"/>
+      <geometry><box size="0.135 0.045 0.042"/></geometry>
+      <material name="battery_blue"/>
+    </visual>
+
+    <!-- SpeedyBee F405 V4 + Hobbywing 65A 4-in-1 ESC Stack -->
+    <visual>
+      <origin xyz="0 0 0.015" rpy="0 0 0"/>
+      <geometry><box size
